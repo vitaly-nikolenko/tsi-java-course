@@ -46,9 +46,7 @@ public abstract class Repository<T extends Identity> {
     }
 
     public void delete(T record) {
-        String id = record.getId();
-        Optional<T> r = get(id);
-        r.ifPresent(t -> recordList.remove(t));
+        recordList.remove(record);
     }
 
     /**

@@ -88,8 +88,8 @@ public class StudentManager {
     static void deleteStudent(StudentService service, Scanner scanner) {
         System.out.print("Enter student id to delete: ");
         scanner.nextLine(); // Consume newline character
-        String saveFileName = scanner.nextLine();
-        service.saveToFile(saveFileName);
+        String id = scanner.nextLine();
+        service.delete(id);
     }
 
     static void saveToFile(StudentService service, Scanner scanner) {
