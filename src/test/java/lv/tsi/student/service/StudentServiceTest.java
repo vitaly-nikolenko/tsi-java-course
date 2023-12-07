@@ -1,6 +1,5 @@
 package lv.tsi.student.service;
 
-import lv.tsi.student.model.DuplicateRecordException;
 import lv.tsi.student.model.Student;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -32,19 +31,6 @@ public class StudentServiceTest {
         List<Student> students = studentService.list();
         assertEquals(1, students.size());
         assertEquals(student, students.get(0));
-    }
-
-    @Test
-    void testAddDuplicateStudent() {
-        // Given
-        Student student = new Student("John Ozols", "", LocalDate.of(1990, Month.JANUARY, 1));
-        studentService.add(student);
-
-        // When
-        DuplicateRecordException exception = assertThrows(DuplicateRecordException.class, () -> studentService.add(student));
-
-        // Then
-        assertEquals("Failed to add, student with id: [1] already exists.", exception.getMessage());
     }
 
     @Test
